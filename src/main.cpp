@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
             std::string test2 = projname + "/.rowan";
             const char* data2 = test2.c_str();
             std::ofstream outFile(data2);
-            outFile << "g++ " + projname + "/main.cpp -o " << projname;
+            outFile << "g++ " + projname + "/main.cpp -o " << projname << "/" << projname;
             outFile.close();
             std::string test3 = projname + "/main.cpp";
             const char* data3 = test3.c_str();
@@ -49,9 +49,9 @@ int main(int argc, char** argv) {
         } else if(command == "--run") {
             projname = argv[i + 1];
             #ifdef _WIN32
-                std::string test = projname + ".exe";
+                std::string test = projname + "/" + projname + ".exe";
             #else
-                std::string test = "./" + projname;
+                std::string test = "./" + projname + projname;
             #endif
             const char* data = test.c_str();
             system(data);
