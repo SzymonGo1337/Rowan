@@ -49,9 +49,9 @@ int main(int argc, char** argv) {
         } else if(command == "--run") {
             projname = argv[i + 1];
             #ifdef _WIN32
-                std::string test = projname + "/" + projname + ".exe";
+                std::string test = "start " + projname + "/" + projname + ".exe";
             #else
-                std::string test = "./" + projname + projname;
+                std::string test = "./" + projname + "/" + projname;
             #endif
             const char* data = test.c_str();
             system(data);
